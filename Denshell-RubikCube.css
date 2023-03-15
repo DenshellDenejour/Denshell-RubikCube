@@ -1,0 +1,81 @@
+:root {
+    --dim: calc(min(100vw, 100vh) * 0.5);
+}
+
+body {
+    margin: 1;
+    background: radial-gradient(circle at center, grey, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: calc(var(--dim) * 3);
+}
+
+.cube {
+    width: var(--dim);
+    height: var(--dim);
+    transform-style: preserve-3d;
+    animation-name: cuberotate;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes cuberotate {
+    0% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    100% {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}
+
+.side {
+    background: #222;
+    border-spacing: calc(var(--dim) * 0.025);
+    position: absolute;
+}
+
+.col {
+    width: calc(var(--dim) * 0.3);
+    height: calc(var(--dim) * 0.3);
+    border-radius: calc(var(--dim) * 0.02);
+}
+
+.red-side {
+    transform: rotateY(90deg) translateZ(calc(var(--dim) * -0.5));
+}
+.orange-side {
+    transform: rotateY(90deg) translateZ(calc(var(--dim) * 0.5));
+}
+.green-side {
+    transform: translateZ(calc(var(--dim) * 0.5));
+}
+.blue-side {
+    transform: translateZ(calc(var(--dim) * -0.5));
+}
+.white-side {
+    transform: translateY(calc(var(--dim) * -0.5)) rotateX(90deg);
+}
+.yellow-side {
+    transform: translateY(calc(var(--dim) * 0.5)) rotateX(90deg);
+}
+
+.red-col {
+    background: red;
+}
+.green-col {
+    background: green;
+}
+.blue-col {
+    background: blue;
+}
+.yellow-col {
+    background: yellow;
+}
+.orange-col {
+    background: orange;
+}
+.white-col {
+    background: white;
+}
